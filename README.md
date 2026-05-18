@@ -11,11 +11,11 @@ Shuffle — SOAR (Security Orchestration, Automation and Response)
 The lab simulates a real-world detection and response workflow: a Mimikatz execution on a Windows endpoint triggers a Wazuh alert, which is forwarded to Shuffle, enriched via VirusTotal, escalated to TheHive as a case, and notified to a SOC analyst by email, all automated.
 
 Infrastructure
-Component                     OS             Role
-Windows Client            Windows 10        Endpoint with Wazuh Agent + Sysmon
-Wazuh Server              Ubuntu 22.04      SIEM / EDR Manager
-TheHive Server            Ubuntu 22.04      Case Management + Cassandra + Elasticsearch
-Shuffle                   Cloud-hosted      SOAR Orchestration
+Component      ----------  OS         ---------- Role
+Windows Client ---------- Windows 10  ---------- Endpoint with Wazuh Agent + Sysmon
+Wazuh Server  ----------  Ubuntu 22.04 --------- SIEM / EDR Manager
+TheHive Server ---------- Ubuntu 22.04 --------- Case Management + Cassandra + Elasticsearch
+Shuffle   --------------  Cloud-hosted --------- SOAR Orchestration
 
 Architecture
 
