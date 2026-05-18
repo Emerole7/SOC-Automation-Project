@@ -17,3 +17,34 @@ Wazuh Server              Ubuntu 22.04      SIEM / EDR Manager
 TheHive Server            Ubuntu 22.04      Case Management + Cassandra + Elasticsearch
 Shuffle                   Cloud-hosted      SOAR Orchestration
 
+Architecture
+
+Windows Client (Sysmon + Wazuh Agent)
+        |
+        | (OSSEC events)
+        v
+Wazuh Manager (Ubuntu)
+        |
+        | (Integration webhook)
+        v
+Shuffle SOAR
+        |
+        |--- Extract SHA256 hash
+        |--- Query VirusTotal (reputation score)
+        |--- Create Alert in TheHive
+        |--- Send email to SOC Analyst
+        |
+        | (SOC Analyst reviews alert in TheHive, triggers response)
+        |
+        v
+Shuffle SOAR (Response Workflow)
+        |
+        |--- Kill malicious process on endpoint
+        |--- Quarantine malicious file on endpoint
+        |--- Block malicious hash via Windows Firewall
+        v
+Wazuh Manager (Active Response)
+        |
+        v
+Windows Client (remediation executed)
+
