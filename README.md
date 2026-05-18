@@ -13,14 +13,21 @@ The lab simulates a real-world detection and response workflow: a Mimikatz execu
 Architecture
 
 Windows Client (Sysmon + Wazuh Agent)
+       
         |
         | (OSSEC events)
-        v
+       
+
+        
 Wazuh Manager (Ubuntu)
+       
         |
         | (Integration webhook)
-        v
+       
+
+
 Shuffle SOAR
+       
         |
         |--- Extract SHA256 hash
         |--- Query VirusTotal (reputation score)
@@ -29,15 +36,21 @@ Shuffle SOAR
         |
         | (SOC Analyst reviews alert in TheHive, triggers response)
         |
-        v
+        
+
+
 Shuffle SOAR (Response Workflow)
+        
         |
         |--- Kill malicious process on endpoint
         |--- Quarantine malicious file on endpoint
         |--- Block malicious hash via Windows Firewall
-        v
+        
+
 Wazuh Manager (Active Response)
+       
         |
-        v
+        
+
 Windows Client (remediation executed)
 
