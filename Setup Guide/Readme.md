@@ -497,14 +497,19 @@ fix: Add inbound rule for TCP port 9000 in NSG
 
 
 MITRE ATT&CK Coverage
+
 Technique: OS Credential Dumping  
 ID:T1003
 Detection Method: Sysmon Event ID 1 + OriginalFileName match
 Response Action: Kill process, quarantine file, block hash
+
+
 Technique: Credential Dumping: LSASS Memory
 ID: T1003.001
 Detection Method: Sysmon process create with Mimikatz signature
 Response Action: Kill process, quarantine file
+
+
 Technique: Indicator Removal
 ID: T1070
 Detection Method: Hash-based detection survives binary rename
